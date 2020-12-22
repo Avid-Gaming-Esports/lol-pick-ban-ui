@@ -1,0 +1,336 @@
+body {
+    margin: 0;
+    overflow: hidden;
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+}
+
+:root {
+    --bar-height: 150px;
+    --bar-text-width: 660px;
+    --bar-timer-width: 170px;
+    --bar-middle-width: 200px;
+    --bar-big-text-size: 60px;
+
+    --bar-blue-text-margin: 0 0 0 30px;
+    --bar-red-text-margin: 0 30px 0 0;
+
+    /* --debug-color-green: rgba(0, 255, 0, 0.5); */
+}
+
+.flex-vcenter {
+    display: flex;
+    align-items: center;
+}
+.hidden {
+    /* display: none; */
+    opacity: 0;
+}
+
+.reveal {
+    opacity: 1;
+}
+
+#overlay > img {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    position: absolute;
+}
+
+#bar {
+    height: var(--bar-height);
+    width: 100%;
+    position: absolute;
+    display: flex;
+
+    background-color: var(--debug-color-green);
+}
+
+#bar .text {
+    height: 100%;
+    width: var(--bar-text-width);
+    background-image: linear-gradient(#FFFFFF, rgb(129,129,129));
+    background-size: 100% 100%;
+    -webkit-background-clip: text;
+}
+#bar .text span {
+    -webkit-text-fill-color: transparent;
+    min-height: 100px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bar .timer {
+    height: 100%;
+    width: var(--bar-timer-width);
+}
+#bar .timer span {
+    background-image: linear-gradient(rgb(38,38,38), rgb(44,44,44));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+#bar .middle {
+    height: 100%;
+    width: var(--bar-middle-width);
+    margin-right: 3rem;
+}
+#bar .middle .top {
+    height: 65%;
+}
+#bar .middle .bot {
+    height: 35%;
+}
+
+#bar .score-text {
+    display: block;
+    width: 100%;
+    font-size: calc(var(--bar-height) * 0.65 * 0.6);
+    height: 100%;
+    line-height: calc(var(--bar-height) * 0.65);
+    text-align: center;
+
+    background-image: linear-gradient(rgb(38,38,38), rgb(44,44,44));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#bar .phase-text {
+    display: block;
+    width: 100%;
+    font-size: calc(var(--bar-height) * 0.35 * 0.55);
+    height: calc(var(--bar-height) * 0.35 * 0.55);
+    line-height: calc(var(--bar-height) * 0.35 * 0.55);
+    text-align: center;
+
+    background-image: linear-gradient(#FFFFFF, rgb(129,129,129));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#bar .big-text {
+    display: block;
+    width: 100%;
+    line-height: var(--bar-big-text-size);
+    font-size: var(--bar-big-text-size);
+    height: var(--bar-big-text-size);
+    text-align: center;
+}
+
+#bar .blue.text {
+    margin: var(--bar-blue-text-margin);
+}
+#bar .red.text {
+    margin: var(--bar-red-text-margin);
+}
+
+.picks {
+    position: absolute;
+    top: 183px;
+    width: 426px;
+    height: 690px;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    background-color: var(--debug-color-green);
+}
+.picks.red {
+    right: 0;
+}
+
+.picks .pick {
+    height: 130px;
+    width: 100%;
+}
+
+.picks .pick .splash {
+    width: 100%;
+    height: 100px;
+    position: relative;
+}
+
+.picks .pick .text {
+    background-image: linear-gradient(#FFFFFF, rgb(129,129,129));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    font-size: 24px;
+
+    margin: 0 10px;
+}
+.picks.blue .pick .text {
+    text-align: right;
+}
+
+.picks .pick .splash {
+    overflow: hidden;
+}
+.picks .pick .splash img {
+    display: block;
+    height: auto !important;
+    width: 100%;
+    overflow: hidden;
+    margin-top: -25px;
+}
+
+.bans {
+    position: absolute;
+    top: 906px;
+    width: 720px;
+    height: 120px;
+
+    margin: 0 45px;
+
+    display: flex;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    background-color: var(--debug-color-green);
+    opacity: 1;
+}
+.bans.red {
+    right: 0;
+    flex-direction: row-reverse;
+}
+
+.bans .ban {
+    overflow: hidden;
+    transform: rotate(-15deg);
+    height: 200px;
+    margin-top: -25px;
+}
+.bans.red .ban {
+    transform: rotate(15deg);
+}
+
+.bans .ban .splash {
+    width: 116px;
+    height: 200px;
+}
+
+.bans .ban .splash img {
+    width: 500px;
+    height: auto;
+
+    margin-top: 0px;
+    margin-left: -206px;
+    transition: 0.3s ease-in all;
+}
+.bans.red .ban .splash img {
+    margin-top: 0px;
+    margin-left: -182px;
+    transition: 0.3s ease-in all;
+}
+
+.bans.blue .ban:first-child {
+    margin-left: 28px;
+}
+.bans.blue .ban:last-child {
+    margin-right: 22px;
+}
+.bans.blue .ban:nth-child(3) {
+    margin-right: 44px;
+}
+.bans.red .ban:first-child {
+    margin-right: 28px;
+}
+.bans.red .ban:last-child {
+    margin-left: 22px;
+}
+.bans.red .ban:nth-child(3) {
+    margin-left: 45px;
+}
+
+.bans.blue .ban .splash img {
+    transform: rotate(15deg);
+}
+.bans.red .ban .splash img {
+    transform: rotate(-15deg);
+}
+
+#blue_timer {
+    margin-right: 2rem;
+}
+#red_timer {
+    margin-left: -2.4rem;
+}
+#red_name {
+    margin-left: -1rem;
+}
+
+.fade-in {
+    animation: fadeIn ease 20s;
+    -webkit-animation: fadeIn ease 20s;
+    -moz-animation: fadeIn ease 20s;
+    -o-animation: fadeIn ease 20s;
+    -ms-animation: fadeIn ease 20s;
+}
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+.ss_blue {
+    position: absolute;
+    width: 40px;
+    top: 8px;
+    left: 4px;
+}
+
+.ss_blue .icon1 {
+    width: 40px;
+    top: 0px;
+    margin-top: 0 !important;
+}
+
+.ss_blue .icon2 {
+    width: 40px;
+    top: 56px;
+    margin-top: 6px !important;
+}
+
+.ss_red {
+    position: absolute;
+    width: 40px;
+    top: 8px;
+    right: 4px;
+}
+
+.ss_red .icon1 {
+    width: 40px;
+    top: 0px;
+    margin-top: 0 !important;
+}
+
+.ss_red .icon2 {
+    width: 40px;
+    top: 56px;
+    margin-top: 6px !important;
+}
