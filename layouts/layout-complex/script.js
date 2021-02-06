@@ -2,9 +2,10 @@ function convertTimer(timer) {
     if (timer.toString().length === 1) {
         return '0' + timer;
     } 
-    if (timer.toString() > 60) {
+    if (timer > 60) {
         return '';
     }
+    console.log(timer.toString())
     return timer;
 }
 
