@@ -4,15 +4,15 @@
     "spellsEnabled": true,
     "coachesEnabled": true,
     "blueTeam": {
-      "name": "Draw of the Luck",
-      "short": "DOTL",
-      "score": 0,
+      "name": "On The Spot",
+      "short": "OTS",
+      "score": 1,
       "coach": "Coach Blue",
       "color": "rgb(0,151,196)"
     },
     "redTeam": {
-      "name": "Bots 'R' Us",
-      "short": "BRC",
+      "name": "Lamar Jackson Fan Club",
+      "short": "LJFC",
       "score": 0,
       "coach": "Coach Red",
       "color": "rgb(222,40,70)"

@@ -3,4 +3,4 @@ dist/
 .idea/
 backend-build/
 cache/
-layouts/layout-complex/video2.gif
+layouts/layout-complex/*.gif
