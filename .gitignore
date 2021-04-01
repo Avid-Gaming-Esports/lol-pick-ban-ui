@@ -4,3 +4,5 @@ dist/
 backend-build/
 cache/
 layouts/layout-complex/*.gif
+
+layouts/layout-debug

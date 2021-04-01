@@ -2,9 +2,6 @@ function convertTimer(timer) {
     if (timer.toString().length === 1) {
         return '0' + timer;
     } 
-    if (timer > 60) {
-        return '';
-    }
     console.log(timer.toString())
     return timer;
 }
@@ -14,7 +11,7 @@ PB.on('statusChange', newStatus => {
 });
 
 PB.on('newState', newState => {
-    console.log(newState);
+    // console.log(newState);
     const state = newState.state;
     const config = state.config.frontend;
 
@@ -24,12 +21,17 @@ PB.on('newState', newState => {
     }
 
     // Update timers
-    if (activeTeam === 'blue') {
-        document.getElementById('red_timer').innerText = '';
-        document.getElementById('blue_timer').innerText = ':' + convertTimer(state.timer);
+    if (state.timer <= 60) {
+        if (activeTeam === 'blue') {
+            document.getElementById('red_timer').innerText = '';
+            document.getElementById('blue_timer').innerText = ':' + convertTimer(state.timer);
+        } else {
+            document.getElementById('blue_timer').innerText = '';
+            document.getElementById('red_timer').innerText = ':' + convertTimer(state.timer);
+        }
     } else {
         document.getElementById('blue_timer').innerText = '';
-        document.getElementById('red_timer').innerText = ':' + convertTimer(state.timer);
+        document.getElementById('red_timer').innerText = '';
     }
 
     // Update team names
@@ -48,12 +50,14 @@ PB.on('newState', newState => {
         const teamName = team === 'blue' ? config.blueTeam.short : config.redTeam.short;
         console.log(teamData);
 
+        last = teamData.picks.length;
+
         teamData.picks.forEach((pick, index) => {
             const splash = document.getElementById(`picks_${team}_splash_${index}`);
             const text = document.getElementById(`picks_${team}_text_${index}`);
             const ss1 = document.getElementById(`ss1_${team}_${index}`);
             const ss2 = document.getElementById(`ss2_${team}_${index}`);
-            console.log(pick, index);
+            // console.log(pick, index);
 
             if (pick.champion.id === 0) {
                 // Not picked yet, hide
@@ -69,13 +73,14 @@ PB.on('newState', newState => {
                 ss1.classList.remove('hidden');
                 ss2.classList.remove('hidden');
             }
+            console.log(index, last, pick.champion.id);
 
             text.innerText = teamName + " " + pick.displayName;
         });
 
         teamData.bans.forEach((ban, index) => {
             const splash = document.getElementById(`bans_${team}_splash_${index}`);
-            console.log(ban)
+            // console.log(ban)
 
             if (ban.champion.id === 0) {
                 // Not banned yet, hide
@@ -86,7 +91,7 @@ PB.on('newState', newState => {
                 splash.classList.remove('hidden');
             }
 
-            console.log(splash, ban);
+            // console.log(splash, ban);
         });
     };
     updatePicks('blue');

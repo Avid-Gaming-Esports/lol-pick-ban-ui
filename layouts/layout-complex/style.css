@@ -135,7 +135,7 @@ body {
 .picks {
     position: absolute;
     top: 183px;
-    width: 426px;
+    width: 400px;
     height: 690px;
 
     display: flex;
@@ -188,9 +188,9 @@ body {
 
 .bans {
     position: absolute;
-    top: 906px;
+    top: 900px;
     width: 720px;
-    height: 120px;
+    height: 130px;
 
     margin: 0 45px;
 
@@ -200,7 +200,6 @@ body {
     overflow: hidden;
 
     background-color: var(--debug-color-green);
-    opacity: 1;
 }
 .bans.red {
     right: 0;
@@ -218,7 +217,7 @@ body {
 }
 
 .bans .ban .splash {
-    width: 116px;
+    width: 110px;
     height: 200px;
 }
 
@@ -228,31 +227,29 @@ body {
 
     margin-top: 0px;
     margin-left: -206px;
-    transition: 0.3s ease-in all;
 }
 .bans.red .ban .splash img {
     margin-top: 0px;
     margin-left: -182px;
-    transition: 0.3s ease-in all;
 }
 
 .bans.blue .ban:first-child {
-    margin-left: 28px;
+    margin-left: 25px;
 }
 .bans.blue .ban:last-child {
-    margin-right: 22px;
+    margin-right: 35px;
 }
 .bans.blue .ban:nth-child(3) {
-    margin-right: 44px;
+    margin-right: 30px;
 }
 .bans.red .ban:first-child {
-    margin-right: 28px;
+    margin-right: 25px;
 }
 .bans.red .ban:last-child {
-    margin-left: 22px;
+    margin-left: 35px;
 }
 .bans.red .ban:nth-child(3) {
-    margin-left: 45px;
+    margin-left: 30px;
 }
 
 .bans.blue .ban .splash img {
@@ -273,12 +270,13 @@ body {
 } */
 
 .fade-in {
-    animation: fadeIn ease 20s;
-    -webkit-animation: fadeIn ease 20s;
-    -moz-animation: fadeIn ease 20s;
-    -o-animation: fadeIn ease 20s;
-    -ms-animation: fadeIn ease 20s;
+    animation: fadeIn ease 10s;
+    -webkit-animation: fadeIn ease 10s;
+    -moz-animation: fadeIn ease 10s;
+    -o-animation: fadeIn ease 10s;
+    -ms-animation: fadeIn ease 10s;
 }
+
 @keyframes fadeIn {
     0% {opacity:0;}
     100% {opacity:1;}
@@ -340,4 +338,41 @@ body {
     width: 40px;
     top: 56px;
     margin-top: 6px !important;
+}
+
+.picking_blue {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+}
+
+.picking_red {
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+}
+
+.picking-text {
+    color: white;
+    font-size: 26px;
+    font-weight: 100;
+    font-family: 'Lato', sans-serif;
+    text-shadow: 1px 1px 1px black;
+}
+
+.pulsate {
+    -webkit-animation: pulsate 3s ease-out;
+    -webkit-animation-iteration-count: infinite; 
+    opacity: 0.5;
+}
+@-webkit-keyframes pulsate {
+    0% { 
+        opacity: 0;
+    }
+    50% { 
+        opacity: 1.0;
+    }
+    100% { 
+        opacity: 0;
+    }
 }
